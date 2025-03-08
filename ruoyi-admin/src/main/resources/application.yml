@@ -183,13 +183,13 @@ gen:
   # 路径
   path:
     # 后端根目录
-    backPath: /Users/wuyulin/work/project/ruoyi-mall
+    backPath: /Users/wuyulin/work/project/mall/ruoyi-mall
     # 后端 service 模块名
     serviceModule: mall
     # 后端 api 模块名, 默认与 service 一致
     apiModule: mall
     # 前端根目录
-    frontPath: /Users/wuyulin/work/project/ruoyi-mall-vue
+    frontPath: /Users/wuyulin/work/project/mall/ruoyi-mall-vue
     # 前端 api 目录
     frontApiPath: src/api/mall
     # 前端 view 目录
