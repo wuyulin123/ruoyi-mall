@@ -4,6 +4,7 @@ import cn.hutool.core.img.Img;
 import cn.hutool.core.img.ImgUtil;
 import cn.hutool.core.io.FileUtil;
 import com.alibaba.fastjson.JSON;
+import com.ruoyi.common.utils.SecurityUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Test;
@@ -33,7 +34,7 @@ public class CommonTest {
     }*/
 
     @Test
-    public void testEquals(){
+    public void testEquals() {
         Integer num1 = 100;
         Integer num2 = 100;
 
@@ -56,6 +57,7 @@ public class CommonTest {
         ImgUtil.scale(new File(f1), new File(f2), .1f);
         log.info("end {}", System.currentTimeMillis() - start);
     }
+
     @Test
     public void test5() throws IOException {
         String f1 = "D:/build/tt.jpg";
@@ -69,7 +71,7 @@ public class CommonTest {
     }
 
     @Test
-    public void testTimestampt(){
+    public void testTimestampt() {
         Instant tsObj = Instant.now();
 
         long secs = tsObj.getEpochSecond();
@@ -86,7 +88,7 @@ public class CommonTest {
         String key = "3C502C97ABDA40D0A60FBEE50FAAD1DA";
         Long timestamp = Instant.now().getEpochSecond();
         String token = "23y0ufFl5YxIyGrI8hWRUZmKkvtSjLQA";
-        String nonce ="123456789abcdefg";
+        String nonce = "123456789abcdefg";
         String passid = "zdww";
         String tempString = timestamp + token + nonce + timestamp;
 
@@ -97,27 +99,33 @@ public class CommonTest {
         System.out.println(zdwwsignature);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.set("x-wif-nonce","QkjjtiLM2dCratiA");
-        headers.set("x-wif-paasid","smt-application");
-        headers.set("x-wif-signature",zdwwsignature);
-        headers.set("x-wif-timestamp",timestamp.toString());
-        headers.set("Origin","http://bmfw.www.gov.cn");
-        headers.set("Referer","http://bmfw.www.gov.cn/yqfxdjcx/risk.html");
+        headers.set("x-wif-nonce", "QkjjtiLM2dCratiA");
+        headers.set("x-wif-paasid", "smt-application");
+        headers.set("x-wif-signature", zdwwsignature);
+        headers.set("x-wif-timestamp", timestamp.toString());
+        headers.set("Origin", "http://bmfw.www.gov.cn");
+        headers.set("Referer", "http://bmfw.www.gov.cn/yqfxdjcx/risk.html");
 
-        Map<String,String> map = new HashMap<String,String>();
-        map.put("appId","NcApplication");
-        map.put("paasHeader",passid);
-        map.put("timestampHeader",timestamp.toString());
-        map.put("nonceHeader",nonce);
-        map.put("signatureHeader",signatureHeader);
-        map.put("key",key);
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("appId", "NcApplication");
+        map.put("paasHeader", passid);
+        map.put("timestampHeader", timestamp.toString());
+        map.put("nonceHeader", nonce);
+        map.put("signatureHeader", signatureHeader);
+        map.put("key", key);
 
-        String json= JSON.toJSONString(map);
+        String json = JSON.toJSONString(map);
         System.out.println(json);
-        HttpEntity<String> entity = new HttpEntity<String>(json,headers);
+        HttpEntity<String> entity = new HttpEntity<String>(json, headers);
 
         String ans = restTemplate.postForObject(url, entity, String.class);
         System.out.println(ans);
 
+    }
+
+    @Test
+    public void testPwd() {
+        String encryptPwd = SecurityUtils.encryptPassword("123456");
+        System.out.println(encryptPwd);
     }
 }
