@@ -7,8 +7,8 @@ import com.ruoyi.common.core.mybatis.MybatisId;
 import com.ruoyi.common.utils.StringUtils;
 import org.apache.commons.lang3.ArrayUtils;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;

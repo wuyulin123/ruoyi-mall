@@ -3,8 +3,8 @@ package com.cyl.h5.domain.form;
 import com.cyl.h5.domain.dto.OrderProductListDTO;
 import lombok.Data;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 @Data

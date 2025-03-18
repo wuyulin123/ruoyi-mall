@@ -7,7 +7,7 @@ import com.ruoyi.common.core.mybatis.MybatisId;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.generator.util.GenUtils;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 /**
  * 代码生成业务字段表 gen_table_column

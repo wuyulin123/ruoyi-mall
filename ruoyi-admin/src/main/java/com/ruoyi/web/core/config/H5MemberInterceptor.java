@@ -10,13 +10,13 @@ import com.ruoyi.framework.config.LocalDataUtil;
 import com.ruoyi.framework.web.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.HandlerInterceptor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Configuration
-public class H5MemberInterceptor extends HandlerInterceptorAdapter {
+public class H5MemberInterceptor implements HandlerInterceptor {
 
   @Autowired
   private TokenService tokenService;
@@ -36,7 +36,7 @@ public class H5MemberInterceptor extends HandlerInterceptorAdapter {
     String requestUri = request.getRequestURI();
     boolean flag = true;
     if (!requestUri.startsWith("/h5/")) {
-      return super.preHandle(request, response, handler);
+      return true;
     }
 
     for (String s : WHITE_PATHS) {
@@ -46,7 +46,7 @@ public class H5MemberInterceptor extends HandlerInterceptorAdapter {
       }
     }
     if (!flag) {
-      return super.preHandle(request, response, handler);
+      return true;
     }
     LoginMember loginMember = tokenService.getLoginMember(request);
     if (loginMember == null) {
@@ -61,7 +61,7 @@ public class H5MemberInterceptor extends HandlerInterceptorAdapter {
     //将会员信息存放至全局
     LocalDataUtil.setVar(Constants.MEMBER_INFO, member);
 
-    return super.preHandle(request, response, handler);
+    return true;
   }
 
 

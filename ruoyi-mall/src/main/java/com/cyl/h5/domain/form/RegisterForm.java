@@ -3,7 +3,7 @@ package com.cyl.h5.domain.form;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 @Data
 public class RegisterForm {

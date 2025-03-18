@@ -2,7 +2,7 @@ package com.cyl.manager.ums.domain.form;
 
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 @Data
 public class AddMemberCartForm {
