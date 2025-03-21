@@ -151,7 +151,7 @@ public class MemberService {
     public MemberDataStatisticsVO viewStatistics(Long memberId) {
         LambdaQueryWrapper<MemberCart> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(MemberCart::getMemberId, memberId);
-        int cartCount = memberCartMapper.selectCount(wrapper);
+        int cartCount = memberCartMapper.selectCount(wrapper).intValue();
         MemberDataStatisticsVO vo = orderMapper.statOrderCountAndAmount(memberId);
         vo.setCartCount(cartCount);
         vo.setAftersaleCount(aftersaleMapper.countByMemberId(memberId));

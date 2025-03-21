@@ -130,7 +130,7 @@ public class CouponActivityService {
         QueryWrapper<MemberCoupon> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("member_id", SecurityUtil.getLocalMember().getId())
                 .eq("coupon_activity_id", id);
-        Integer count = memberCouponMapper.selectCount(queryWrapper);
+        Integer count = memberCouponMapper.selectCount(queryWrapper).intValue();
         if (count != null && count >= couponActivity.getUserLimit()) {
             res.setCanGet(false);
         } else {
@@ -229,7 +229,7 @@ public class CouponActivityService {
         QueryWrapper<MemberCoupon> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("member_id", memberId)
                 .eq("coupon_activity_id", id);
-        Integer count = memberCouponMapper.selectCount(queryWrapper);
+        Integer count = memberCouponMapper.selectCount(queryWrapper).intValue();
         if (count != null && count >= couponActivity.getUserLimit()) {
             throw new RuntimeException("您已达到领取额度");
         }

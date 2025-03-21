@@ -53,8 +53,8 @@ public class IndexStatisticsService {
 
     public MemberAndCartStatisticsVO statMemberAndCart() {
         MemberAndCartStatisticsVO vo = new MemberAndCartStatisticsVO();
-        vo.setMemberCount(memberMapper.selectCount(null));
-        vo.setCartCount(memberCartMapper.selectCount(null));
+        vo.setMemberCount(memberMapper.selectCount(null).intValue());
+        vo.setCartCount(memberCartMapper.selectCount(null).intValue());
         return vo;
     }
 

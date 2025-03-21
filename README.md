@@ -20,10 +20,10 @@ https://docs.ichengle.top/mall/ops.html
 jdk请选择1.8~11之间的，不然mybaties会报错
 
 ## 项目地址
-|                | gitee                                   | github                                       |
-|:--------------:|:----------------------------------------|:---------------------------------------------|
-| 管理端vue element | https://gitee.com/zccbbg/ruoyi-mall-vue | https://github.com/zccbbg/ruoyi-mall-vue     |
-|   h5 uniapp    | https://gitee.com/zccbbg/ruoyi-mall-uniapp | https://github.com/zccbbg/ruoyi-mall-uniapp  |
+|                | github                                       | gitee                                   |
+|:--------------:|:---------------------------------------------|:----------------------------------------|
+| 管理端vue element | https://github.com/zccbbg/ruoyi-mall-vue     | https://gitee.com/zccbbg/ruoyi-mall-vue |
+|   h5 uniapp    | https://github.com/zccbbg/ruoyi-mall-uniapp  | https://gitee.com/zccbbg/ruoyi-mall-uniapp |
 
 ## 在线体验
 ### 管理后台演示地址

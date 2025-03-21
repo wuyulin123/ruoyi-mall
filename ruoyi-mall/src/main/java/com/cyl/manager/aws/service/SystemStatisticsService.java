@@ -143,7 +143,7 @@ public class SystemStatisticsService {
         //统计注册用户
         LambdaQueryWrapper<Member> memberWrapper = new LambdaQueryWrapper<>();
         memberWrapper.between(Member::getCreateTime, startTime, endTime);
-        systemStatistics.setRegisterMemberCount(memberMapper.selectCount(memberWrapper));
+        systemStatistics.setRegisterMemberCount(memberMapper.selectCount(memberWrapper).intValue());
         //统计加购数
         systemStatistics.setAddCartMemberCount(memberCartMapper.statAddCount(startTime, endTime));
         systemStatistics.setDate(startTime);
